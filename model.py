@@ -15,8 +15,13 @@ def make_empty_board():
     return np.zeros(shape=(6, 7), dtype=int)
     pass
 
-# Step 2 - column_top_row (not yet solved)
-# TODO: implement
+# Step 2 - column_top_row
+def column_top_row(board, column):
+    """Return the lowest empty row in `column`, or -1 if the column is full."""
+    # TODO: scan the column from the bottom up and return the first empty row index
+    idx = np.searchsorted(board[:, column], 0, side='right') - 1
+    return idx
+    pass
 
 # Step 3 - drop_piece (not yet solved)
 # TODO: implement

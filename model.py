@@ -23,8 +23,16 @@ def column_top_row(board, column):
     return idx
     pass
 
-# Step 3 - drop_piece (not yet solved)
-# TODO: implement
+# Step 3 - drop_piece
+def drop_piece(board, column, player):
+    # TODO: place `player` in the lowest empty row of `column` and return the new board
+    board_new = board.copy()
+    emp_row = column_top_row(board, column)
+    if emp_row == -1:
+        raise ValueError("The column is already filled.")
+    board_new[emp_row][column] = player 
+    return board_new
+    pass
 
 # Step 4 - column_full (not yet solved)
 # TODO: implement

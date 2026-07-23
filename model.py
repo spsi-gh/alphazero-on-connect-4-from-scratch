@@ -168,8 +168,12 @@ def encode_board(board, current_player):
     return np.stack((mask_1, mask_2))
     pass
 
-# Step 16 - board_to_torch_tensor (not yet solved)
-# TODO: implement
+# Step 16 - board_to_torch_tensor
+def board_to_torch_tensor(board, current_player):
+    # TODO: encode the board and return it as a float32 torch tensor of shape (1, 2, 6, 7).
+    torch_board = torch.tensor(encode_board(board, current_player), dtype = torch.float32)
+    return torch_board.unsqueeze(dim=0)
+    pass
 
 # Step 17 - init_conv_backbone (not yet solved)
 # TODO: implement

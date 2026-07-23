@@ -205,6 +205,7 @@ def init_policy_head(hidden_channels=16, num_columns=7):
     """Return an nn.Module mapping (B, hidden_channels, 6, 7) -> (B, num_columns) logits."""
     # TODO: build a small policy head that projects backbone features to column logits
     layers = nn.Sequential(
+        nn.Conv2d(in_channels=hidden_channels, out_channels=2, kernel_size=1),
         nn.Flatten(),
         nn.LazyLinear(num_columns)
     )

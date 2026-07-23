@@ -346,8 +346,17 @@ def ucb_score(parent, child, c_puct=1.5):
     return node_q_value(child) + (c_puct * child['prior']) * math.sqrt(parent['visit_count'])/(1 + child['visit_count'])    
     pass
 
-# Step 30 - select_best_child (not yet solved)
-# TODO: implement
+# Step 30 - select_best_child
+def select_best_child(node, legal_actions, c_puct=1.5):
+    # TODO: return (action, child) maximizing PUCT among legal children of node.
+    max_ucb = float('-inf')
+    best_child = (None, None)
+    for key, value in node['children'].items():
+        if key in legal_actions and ucb_score(parent=node, child=value, c_puct=c_puct) > max_ucb:
+            max_ucb = ucb_score(parent=node, child=value, c_puct=c_puct)
+            best_child = (key, value)
+    return best_child
+    pass
 
 # Step 31 - select_leaf (not yet solved)
 # TODO: implement

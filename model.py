@@ -207,7 +207,7 @@ def init_policy_head(hidden_channels=16, num_columns=7):
     layers = nn.Sequential(
         nn.Conv2d(in_channels=hidden_channels, out_channels=2, kernel_size=1),
         nn.Flatten(),
-        nn.LazyLinear(num_columns)
+        nn.Linear(84, num_columns)
     )
     return layers
     pass
